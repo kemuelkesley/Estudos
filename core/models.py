@@ -33,6 +33,7 @@ class Bairro(models.Model):
 
 class Evento(models.Model):
     nome_evento = models.CharField(max_length=100, verbose_name='Nome do Evento')
+    slug = models.CharField(max_length=100, blank=True, null=True,verbose_name='Slug')
     data_evento = models.DateTimeField(default=timezone.now)
     descricao = models.TextField(blank=True, null=True, verbose_name='Descrição')
     Cidade = models.ForeignKey(Cidade, blank=True, null=True, on_delete=models.PROTECT)
@@ -57,7 +58,7 @@ class Sexo(models.Model):
 
 
 # Cadastro de Clientes
-
+    
 class CadastroCliente(models.Model):      
         
     nome_completo = models.CharField(max_length=100, verbose_name='Nome Completo')
